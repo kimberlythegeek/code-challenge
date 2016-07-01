@@ -82,7 +82,7 @@ tr:hover{
 }
 @media (min-width:1024px) {
   .table {
-    max-width: 50%;
+    max-width: 570px;
     margin: auto;
     float: none;
   }
