@@ -19,55 +19,106 @@ h1{
   margin: auto auto 3rem;
   max-width: 600px;
 }
-a {
+
+a,
+.pagination a {
   color: #7C1F3C;
   font-weight: 600;
   font-size: 110%;
 }
-  a:hover, a:focus {
-    color: #CF5C36;
-    text-decoration: none;
-  }
+a:hover,
+a:focus,
+.pagination a:hover {
+  color: #CF5C36;
+  text-decoration: none;
+}
 i {
   color: #CF5C36;
 }
-tr:hover{
-  cursor: pointer;
-}
-.table>tbody>tr>td {
-  border-top: 1px solid #BBBDBF;
-}
-.table-hover>tbody>tr:hover {
-  background-color: #F4E3B2;
-  color: #3D2A0F;
-}
-.table-hover>tbody>tr:hover td{
-  border-top: 1px solid #C6A87D;
-}
-.table-hover>tbody>tr:hover i {
-  color: #CE8E35;
-}
+
 .business-info {
   padding-bottom: 4rem;
 }
 .map {
   padding: 2rem;
 }
+
+.nav {
+  width: 20rem;
+  float: none;
+  margin: auto;
+}
+#nav-button {
+  padding: 1rem;
+  font-size: 1.6rem;
+  width: 5rem;
+  display: inline;
+}
+#nav-button i:hover{
+  color: #7C1F3C;
+}
+
+.page {
+  max-width: 100%;
+  overflow: hidden;
+}
+.review {
+  border-top: 1px solid #BBBDBF;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.review:hover {
+  border-top: 1px solid #C6A87D;
+  background-color: #F4E3B2;
+  color: #3D2A0F;
+  cursor: pointer;
+}
+.review:hover i {
+  color: #CE8E35;
+}
 .reviews {
   font-family: 'Source Sans Pro', sans-serif;
 }
-  .reviews .description {
-    font-style: italic;
-  }
+.reviews .description {
+  font-style: italic;
+  min-width: 30rem;
+}
+.rating {
+    min-width: 13rem;
+    padding-top: 0.8rem;
+}
+
 
 @media (min-width:200px){
   .review_from, .map{
     display: none;
   }
+  .reviews .rating,
+  .reviews .customer_name {
+    width: 50%;
+    margin: auto;
+    float: left;
+  }
+  .reviews .description {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width:100%;
+  }
 }
 @media (min-width:580px) {
-  .review_from, .map {
+  .map {
     display: block;
+  }
+  .review_from {
+    display: block;
+    float:left;
+    width: 20%;
+  }
+  .reviews .rating,
+  .reviews .customer_name {
+    width: 40%;
+    margin: auto;
+    float: left;
   }
   iframe {
     width: 400px;
@@ -81,9 +132,14 @@ tr:hover{
   }
 }
 @media (min-width:1024px) {
-  .table {
-    max-width: 570px;
-    margin: auto;
-    float: none;
+  .reviews .rating,
+  .reviews .review_from,
+  .reviews .customer_name {
+    width: 15%;
+    margin: initial;
+  }
+  .reviews .description {
+    float:left;
+    width:50%;
   }
 }

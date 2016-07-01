@@ -1,49 +1,123 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
 
-</head>
+  </head>
 
-<header>
+  <header>
 
-</header>
-
-
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1 business-info text-center">
-        <div id="business" class="name"></div>
-        <div id="border"></div>
-        <div id="business" class="address"></div>
-        <div id="business" class="phone"></div>
-        <div id="business" class="ratings"></div>
-        <div id="business" class="url"></div>
-        <div id="business" class="map center-block"></div>
-      </div>
-      <div class="col-xs-10 col-xs-offset-1">
-        <table class="table table-responsive table-hover reviews">
-          <thead>
-
-          </thead>
-          <tbody>
-
-          </tbody>
-        </table>
-      </div>
-
-    </div> <!-- .row -->
-  </div><!-- .container-fluid -->
-
-</body>
+  </header>
 
 
-<footer>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 business-info text-center">
+          <div id="business" class="name"></div>
+          <div id="border"></div>
+          <div id="business" class="address"></div>
+          <div id="business" class="phone"></div>
+          <div id="business" class="ratings">
+            <div id="total_rating"></div>
+            <div id="star_rating"></div><br />
+            <div id="add_review"></div>
+            <div id="more_reviews"></div>
+          </div>
+          <div id="business" class="url"></div>
+          <div id="business" class="map center-block"></div>
+        </div>
+        <div class="col-xs-10 col-xs-offset-1 reviews">
+            <div class="page text-center"></div>
+            <div class="nav text-center">
+              <div id ="nav-button" class="first"><a href=#><i class="fa fa-fast-backward" aria-hidden="true"></i></a></div>
+              <div id ="nav-button" class="prev"><a href=#><i class="fa fa-step-backward" aria-hidden="true"></i></a></div>
+              <div id ="nav-button" class="next"><a href=#><i class="fa fa-step-forward" aria-hidden="true"></i></a></div>
+              <div id ="nav-button" class="last"><a href=#><i class="fa fa-fast-forward" aria-hidden="true"></i></a></div>
+            </div>
+          <div class="review_list">
+            <div id="review_1" class="review row">
+              <div class="col-xs-1 col-xs-offset-1 rating"></div>
+              <div class="col-xs-2 customer_name"></div>
+              <div class="col-xs-2 review_from"></div>
+              <div class="col-xs-6 description"></div>
+            </div><!--.review .row-->
+            <div id="review_2" class="review row">
+              <div class="col-xs-1 col-xs-offset-1 rating"></div>
+              <div class="col-xs-2 customer_name"></div>
+              <div class="col-xs-2 review_from"></div>
+              <div class="col-xs-6 description"></div>
+            </div><!--.review .row-->
+            <div id="review_3" class="review row">
+              <div class="col-xs-1 col-xs-offset-1 rating"></div>
+              <div class="col-xs-2 customer_name"></div>
+              <div class="col-xs-2 review_from"></div>
+              <div class="col-xs-6 description"></div>
+            </div><!--.review .row-->
+            <div id="review_4" class="review row">
+              <div class="col-xs-1 col-xs-offset-1 rating"></div>
+              <div class="col-xs-2 customer_name"></div>
+              <div class="col-xs-2 review_from"></div>
+              <div class="col-xs-6 description"></div>
+            </div><!--.review .row-->
+            <div id="review_5" class="review row">
+              <div class="col-xs-1 col-xs-offset-1 rating"></div>
+              <div class="col-xs-2 customer_name"></div>
+              <div class="col-xs-2 review_from"></div>
+              <div class="col-xs-6 description"></div>
+            </div><!--.review .row-->
+            <div id="review_6" class="review row">
+              <div class="col-xs-1 col-xs-offset-1 rating"></div>
+              <div class="col-xs-2 customer_name"></div>
+              <div class="col-xs-2 review_from"></div>
+              <div class="col-xs-6 description"></div>
+            </div><!--.review .row-->
+            <div id="review_7" class="review row">
+              <div class="col-xs-1 col-xs-offset-1 rating"></div>
+              <div class="col-xs-2 customer_name"></div>
+              <div class="col-xs-2 review_from"></div>
+              <div class="col-xs-6 description"></div>
+            </div><!--.review .row-->
+            <div id="review_8" class="review row">
+              <div class="col-xs-1 col-xs-offset-1 rating"></div>
+              <div class="col-xs-2 customer_name"></div>
+              <div class="col-xs-2 review_from"></div>
+              <div class="col-xs-6 description"></div>
+            </div><!--.review .row-->
+            <div id="review_9" class="review row">
+              <div class="col-xs-1 col-xs-offset-1 rating"></div>
+              <div class="col-xs-2 customer_name"></div>
+              <div class="col-xs-2 review_from"></div>
+              <div class="col-xs-6 description"></div>
+            </div><!--.review .row-->
+            <div id="review_10" class="review row">
+              <div class="col-xs-1 col-xs-offset-1 rating"></div>
+              <div class="col-xs-2 customer_name"></div>
+              <div class="col-xs-2 review_from"></div>
+              <div class="col-xs-6 description"></div>
+            </div><!--.review .row-->
+            <div id="review_1" class="review row">
+              <div class="col-xs-1 col-xs-offset-1 rating"></div>
+              <div class="col-xs-2 customer_name"></div>
+              <div class="col-xs-2 review_from"></div>
+              <div class="col-xs-6 description"></div>
+            </div><!--.review .row-->
+          </div><!--.review_list-->
+        </div><!--.reviews-->
 
-</footer>
+      </div> <!-- .row -->
+    </div><!-- .container-fluid -->
+
+  </body>
+
+
+  <footer>
+
+  </footer>
+</html>
