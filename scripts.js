@@ -10,18 +10,24 @@ function getID(page_link){
 
 function apiCall(page){
 
-  $.getJSON('http://www.acodeabove.com/code-challenge/proxy.php', {page: page}, function(json) {
+  $.getJSON('localhost/code-challenge/proxy.php', {page: page}, function(json) {
 
     if(current_page==1){
       $('.first').addClass('hidden');
+      $('.prev').addClass('hidden');
+      $('.next').removeClass('hidden');
       $('.last').removeClass('hidden');
     }
     else if(current_page==17){
       $('.first').removeClass('hidden');
+      $('.prev').removeClass('hidden');
+      $('.next').addClass('hidden');
       $('.last').addClass('hidden')
     }
     else{
       $('.first').removeClass('hidden');
+      $('.prev').removeClass('hidden');
+      $('.next').removeClass('hidden');
       $('.last').removeClass('hidden');
     }
 
@@ -56,7 +62,6 @@ function apiCall(page){
     $('.page').html(page_numbers);
 
     $.each(reviews,function(i){
-      console.log(i);
       var review = reviews[i];
       $.each(review, function(j){
         review[j] = JSON.stringify(review[j]).replace(/\"+/g,'');
@@ -91,6 +96,22 @@ $(document).ready(function(){
 
   apiCall(current_page);
 
+  $('.first').on('click', function(){
+    current_page = 1;
+    apiCall(current_page);
+  });
+  $('.prev').on('click', function(){
+    current_page -= 1;
+    apiCall(current_page);
+  });
+  $('.next').on('click', function(){
+    current_page += 1;
+    apiCall(current_page);
+  });
+  $('.last').on('click', function(){
+    current_page = 17;
+    apiCall(current_page);
+  });
 
 
 });
