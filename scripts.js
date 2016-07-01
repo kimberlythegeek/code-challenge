@@ -5,12 +5,10 @@ var star_empty =  '<i class="fa fa-star-o" aria-hidden="true"></i>';
 
 function getID(page_link){
   current_page = page_link.id;
-  apiCall(current_page);
+  loadReviews(current_page);
 }
 
-function apiCall(page){
-
-  $.getJSON('localhost/code-challenge/proxy.php', {page: page}, function(json) {
+function printReviews(reviews){
 
     if(current_page==1){
       $('.first').addClass('hidden');
@@ -30,6 +28,49 @@ function apiCall(page){
       $('.next').removeClass('hidden');
       $('.last').removeClass('hidden');
     }
+
+    $.each(reviews,function(i){
+      var review = reviews[i];
+      $.each(review, function(j){
+        review[j] = JSON.stringify(review[j]).replace(/\"+/g,'');
+      });
+      var review_from = '';
+      switch(review.review_from){
+        case "0":
+          review_from = 'http://localreviewdirectory.com/resize/images/social_icon/opentable.png?w=40';
+          break;
+        case "1":
+          review_from = 'http://localreviewdirectory.com/resize/images/social_icon/yelp_logo.png?w=40';
+          break;
+        case "2":
+          review_from = 'http://localreviewdirectory.com/resize/images/social_icon/google_logo.png?w=40';
+          break;
+        default:
+          review_from = 'invalid source';
+      }
+      var num = i+1;
+      var review_link = review.customer_url + '?review_id=' + review.review_id;
+      review.rating = parseInt(review.rating);
+      $('#review_' + num + ' .rating').html(star_full.repeat(review.rating) + star_empty.repeat(5-review.rating));
+      $('#review_' + num + ' .customer_name').html('<a href="' + review_link + '">' + review.customer_name + '</a>');
+      $('#review_' + num + ' .review_from').html('<img src="' + review_from + '">');
+      $('#review_' + num + ' .description').html('"' + review.description + '"');
+      $('#review_' + num).on('click',function(){location.href=review_link});
+    });
+}
+
+function loadReviews(page){
+  $.getJSON('localhost/code-challenge/proxy.php', {page: page}, function(json) {
+    var reviews = json.reviews;
+    printReviews(reviews);
+  });
+}
+
+function apiCall(page){
+
+  $.getJSON('localhost/code-challenge/proxy.php', {page: page}, function(json) {
+
+
 
     var total_rating = json.business_info.total_rating;
     var avg_rating = total_rating.total_avg_rating;
@@ -61,34 +102,8 @@ function apiCall(page){
     page_numbers += '</ul>';
     $('.page').html(page_numbers);
 
-    $.each(reviews,function(i){
-      var review = reviews[i];
-      $.each(review, function(j){
-        review[j] = JSON.stringify(review[j]).replace(/\"+/g,'');
-      });
-      var review_from = '';
-      switch(review.review_from){
-        case "0":
-          review_from = 'http://localreviewdirectory.com/resize/images/social_icon/opentable.png?w=40';
-          break;
-        case "1":
-          review_from = 'http://localreviewdirectory.com/resize/images/social_icon/yelp_logo.png?w=40';
-          break;
-        case "2":
-          review_from = 'http://localreviewdirectory.com/resize/images/social_icon/google_logo.png?w=40';
-          break;
-        default:
-          review_from = 'invalid source';
-      }
-      var num = i+1;
-      var review_link = review.customer_url + '?review_id=' + review.review_id;
-      review.rating = parseInt(review.rating);
-      $('#review_' + num + ' .rating').html(star_full.repeat(review.rating) + star_empty.repeat(5-review.rating));
-      $('#review_' + num + ' .customer_name').html('<a href="' + review_link + '">' + review.customer_name + '</a>');
-      $('#review_' + num + ' .review_from').html('<img src="' + review_from + '">');
-      $('#review_' + num + ' .description').html('"' + review.description + '"');
-      $('#review_' + num).on('click',function(){location.href=review_link});
-    });
+
+    loadReviews(page);
   });
 }
 
@@ -98,19 +113,19 @@ $(document).ready(function(){
 
   $('.first').on('click', function(){
     current_page = 1;
-    apiCall(current_page);
+    loadReviews(current_page);
   });
   $('.prev').on('click', function(){
     current_page -= 1;
-    apiCall(current_page);
+    loadReviews(current_page);
   });
   $('.next').on('click', function(){
     current_page += 1;
-    apiCall(current_page);
+    loadReviews(current_page);
   });
   $('.last').on('click', function(){
     current_page = 17;
-    apiCall(current_page);
+    loadReviews(current_page);
   });
 
 
