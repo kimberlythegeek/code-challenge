@@ -1,5 +1,8 @@
 # Coding Challenge for Reputation Loop
 
+> _This is in a public repo, so I have removed my private API key from the above url and instead google's embed feature for the map_
+> _I did this as a skills assessment for a PHP developer position_
+
 [www.acodeabove.com/code-challenge](http://www.acodeabove.com/code-challenge)
 
 _Note: The code in this repository is set up to run on localhost._
