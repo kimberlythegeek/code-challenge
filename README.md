@@ -2,6 +2,7 @@
 
 > _This is in a public repo, so I have removed my private API key from the above url and instead google's embed feature for the map_
 > _I did this as a skills assessment for a PHP developer position_
+> _KimberlytheGeek_
 
 [www.acodeabove.com/code-challenge](http://www.acodeabove.com/code-challenge)
 
@@ -35,5 +36,3 @@ I used fonts imported from [Google Fonts](https://www.google.com/fonts), and I u
 Passed the `current_page` as a parameter in the `$.getJSON` call to enable viewing all of the reviews.
 
 Used Bootstrap's pagination class to display pages of reviews, and added navigation buttons.
-
->_KimberlytheGeek_
