@@ -79,9 +79,15 @@ function apiCall(page){
     });
     var business_info = json.business_info;
     var reviews = json.reviews;
-    var address = business_info.business_address.replace(/[\<br\>]/g,',');
-    var addressURL = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBhR4-RfMgyFXCg1_Rx2VPvpeD6VWEHoWw&q=' + address;
-    var map = '<iframe frameborder="0" style="border:0"  src="' + addressURL + '"allowfullscreen></iframe>'
+    //var address = business_info.business_address.replace(/[\<br\>]/g,',');
+    //var addressURL = 'https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY_HERE&q=' + address;
+    //var map = '<iframe frameborder="0" style="border:0"  src="' + addressURL + '"allowfullscreen></iframe>'
+    // NOTE: I have commented out the above lines to prevent a syntax error.
+    // This is in a public repo, so I have removed my private API key from the above url and instead google's embed feature below.
+    // I did this as an assessment for a remote developer position
+    var map = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.688293292291!2d-122.33875934838147!3d47.61275039544352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490154b3243d8ad%3A0xe28ec8c66b939261!2s509+Olive+Way%2C+Seattle%2C+WA+98101!5e0!3m2!1sen!2sus!4v1468031835480" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>'
+
+
 
     $('.name').html('<h1>' + business_info.business_name);
     $('.address').html(business_info.business_address);
